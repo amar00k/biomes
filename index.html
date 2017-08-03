@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="pragma" content="no-cache" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>-->
+	<!--<script type="text/javascript" src="lib/d3.v4.js"></script>-->
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap-tpls-2.5.0.js"></script>
+
+	<style>
+
+		.noselect-pointer {
+					  cursor: pointer;
+		  -webkit-touch-callout: none; /* iOS Safari */
+			-webkit-user-select: none; /* Safari */
+			 -khtml-user-select: none; /* Konqueror HTML */
+			   -moz-user-select: none; /* Firefox */
+				-ms-user-select: none; /* Internet Explorer/Edge */
+				    user-select: none; /* Non-prefixed version, currently
+				                          supported by Chrome and Opera */
+		}
+
+		.panel-underground .panel-heading {
+		  background: #352a21;
+		  color: white;
+		}
+
+		.panel-underground .panel-body {
+		  background: #543f2e;
+		  color: white;
+		}
+
+		.panel-air .panel-heading {
+		  background: #4b87af;
+		  color: black;
+		}
+
+		.panel-air .panel-body {
+		  background: #46a4e2;
+		  color: black;
+		}
+
+		.panel-meadow .panel-heading {
+		  background: #2f8c28;
+		  color: black;
+		}
+
+		.panel-meadow .panel-body {
+		  background: #2f9b26;
+		  color: black;
+		}
+
+	</style>
+
+	<body>
+
+		<div class="jumbotron text-center">
+			<h1>Biomes</h1>
+		</div>
+
+		<div ng-app="biomesApp" ng-controller="mainCtrl">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<uib-accordion close-others="oneAtATime">
+							<div ng-repeat="biome in World.biomes" uib-accordion-group class="panel panel-default {{biome.definition.style_class}}" heading="{{biome.name}}" is-open="true" >
+								<div ng-repeat="res in biome.resources">
+									<biome-directive ng-model="res"></biome-directive>
+								</div>
+							</div>
+						</uib-accordion>
+					</div>
+				</div>
+			</div>	
+
+<!--			<uib-tabset active="active">
+				<uib-tab index="0" heading="Game">
+					<pingpong-vis></pingpong-vis>
+				</uib-tab>
+				<uib-tab index="1" heading="Options">
+				</uib-tab>
+			</uib-tabset>
+			<test-vis></test-vis>
+-->
+		</div>
+
+	</body>
+
+	<script type="text/javascript" src="js/app.js?6"></script>
+	<script type="text/javascript" src="js/services.js?6"></script>
+	<script type="text/javascript" src="js/controllers.js?6"></script>
+	<script type="text/javascript" src="js/directives.js?6"></script>
+	<script type="text/javascript" src="js/filters.js?1"></script>
+
+</html>
